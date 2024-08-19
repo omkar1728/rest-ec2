@@ -17,21 +17,6 @@ s3 = boto3.client('s3',
                     aws_secret_access_key = ACCESS_SECRET_KEY,
                 )
 
-
-# # Set up CORS
-# origins = [
-#     "http://localhost:3000",
-    
-# ]
-
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
-
 @app.get("/")
 def read_root():
     return "Hello, the fastapi server is running"
@@ -51,3 +36,7 @@ async def upload(file: UploadFile = File(...)):
         return "file uploaded"
     else:
         return "error in uploading."
+    
+
+#reference
+#https://github.com/aniketwattamwar/react-fastapi/blob/main/upload-to-s3/main.py
